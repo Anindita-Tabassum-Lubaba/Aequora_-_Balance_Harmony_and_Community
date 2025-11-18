@@ -1,0 +1,270 @@
+.reportsPage {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Top form */
+.reportForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.reportsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.reportsTitle {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+.reportsSubtitle {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.reportFormBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.field input,
+.field textarea,
+.field select {
+  color: black;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #ffffff;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: 2px solid #0ea5e933;
+  border-color: #0ea5e9;
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.fileRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fileName {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reportFormActions {
+  margin-top: 6px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* My reports */
+.reportsListSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reportsListHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reportsListTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.reportsListSubtitle {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.reportsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reportCard {
+  padding: 14px 16px 14px;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.reportCardHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.reportCardTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.reportMeta {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.reportBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.priorityBadge,
+.statusBadge {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+}
+
+.priority-low {
+  background: #ecfdf3;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+.priority-medium {
+  background: #fef9c3;
+  color: #92400e;
+  border-color: #facc15;
+}
+
+.priority-high {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.status-open {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+}
+
+.status-inprogress {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fcd34d;
+}
+
+.status-resolved {
+  background: #ecfdf5;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+.reportDescription {
+  margin: 10px 0 8px;
+  font-size: 14px;
+  color: #111827;
+}
+
+/* Timeline */
+.timeline {
+  margin-top: 4px;
+  border-left: 1px solid #e5e7eb;
+  padding-left: 12px;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.timelineBullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #0ea5e9;
+  border: 2px solid #e0f2fe;
+  position: absolute;
+  left: -15px;
+  top: 4px;
+}
+
+.timelineContent {
+  font-size: 13px;
+}
+
+.timelineText {
+  margin: 0;
+  color: #111827;
+}
+
+.timelineTime {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .fieldGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .reportCardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reportBadges {
+    justify-content: flex-start;
+  }
+}
