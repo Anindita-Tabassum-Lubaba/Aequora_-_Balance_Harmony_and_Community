@@ -1,23 +1,39 @@
+# =========================
 # Node / React
+# =========================
 node_modules/
 frontend/node_modules/
 dist/
 build/
+*.log
 
+# =========================
 # Python / Django
+# =========================
+# Keep the backend project tracked, only ignore venv + cache files
 backend/venv/
+venv/
+
 __pycache__/
+*/__pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# SQLite DB files (local only)
 *.sqlite3
 
+# =========================
 # Env / secrets
+# =========================
 .env
 *.env
 
-# OS / editor
+# =========================
+# OS / editor junk
+# =========================
 .DS_Store
 Thumbs.db
+
 .vscode/
 .idea/
