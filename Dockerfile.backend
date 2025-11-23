@@ -1,0 +1,30 @@
+# Dockerfile.backend
+FROM python:3.11-slim
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+WORKDIR /app
+
+# --- 1. INSTALL BUILD DEPENDENCIES (New Section) ---
+# Install the necessary libraries for mysqlclient compilation (gcc, pkg-config, and client headers)
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        gcc \
+        pkg-config \
+        libmariadb-dev-compat \
+        libmariadb-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# --- 2. INSTALL PYTHON DEPENDENCIES ---
+COPY backend/requirements.txt /app/
+RUN pip install --upgrade pip
+# This step will now succeed because the necessary tools are present
+RUN pip install -r requirements.txt
+
+# --- 3. COPY APPLICATION CODE AND START ---
+COPY backend/ /app/
+
+EXPOSE 8000
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

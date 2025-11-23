@@ -1,0 +1,30 @@
+# Dockerfile.frontend
+
+# 1. Base Image: Use a Node.js image (20-alpine is lightweight and efficient)
+FROM node:20-alpine
+
+# 2. Working Directory: Set the default folder inside the container
+WORKDIR /app
+
+# 3. Dependencies Installation Phase
+# Copy only the dependency files first (package.json and package-lock.json)
+# This allows Docker to cache the npm install layer if only the source code changes.
+# We copy them from their location in the local filesystem (frontend/)
+COPY frontend/package*.json /app/
+
+# Install Node dependencies (npm install)
+RUN npm install
+
+# 4. Application Code Phase
+# Copy the rest of the frontend source code into the container's working directory (/app)
+COPY frontend/ /app/
+
+# 5. Port Exposure
+# Inform Docker that the container will be listening on this port (3000 is the default for many dev servers)
+EXPOSE 3000
+
+# 6. Startup Command
+# This command runs the script that starts the development server.
+# It assumes your package.json has a "start" script defined, like:
+# "scripts": { "start": "react-scripts start" }
+CMD ["npm", "start"]
