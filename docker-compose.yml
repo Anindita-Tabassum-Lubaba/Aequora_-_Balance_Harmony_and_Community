@@ -67,6 +67,24 @@ services:
     depends_on:
       - backend
 
+  # ----------------------------------
+  # 4. PHPMYADMIN SERVICE (New addition for database viewing)
+  # ----------------------------------
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: aequora-phpmyadmin
+    restart: always
+    ports:
+      # Access phpMyAdmin at http://localhost:8080 on your host machine
+      - "8080:80" 
+    environment:
+      # CRITICAL: This tells phpMyAdmin that its target MySQL host is the 'db' service name
+      PMA_HOST: db 
+      # Use the root password defined for your 'db' service above
+      MYSQL_ROOT_PASSWORD: root
+    depends_on:
+      - db
+
 # ----------------------------------
 # Volumes for Persistent Data
 # ----------------------------------
