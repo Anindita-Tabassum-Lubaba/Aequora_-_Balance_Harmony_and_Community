@@ -2,5 +2,6 @@ from django.urls import path
 from .views import ExampleView
 
 urlpatterns = [
-    path('example/', ExampleView.as_view(), name='example'),
+    # This exposes the endpoint at: http://localhost:8000/api/examples/
+    path('examples/', ExampleView.as_view(), name='example-list'),
 ]
